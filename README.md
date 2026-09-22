@@ -20,6 +20,12 @@ npm run build
 npm run preview
 ```
 
+## GitHub Pages
+
+Bei jedem Push auf `main` baut GitHub Actions die App und veröffentlicht den Inhalt von `dist/`
+auf GitHub Pages. Die Seite ist anschließend unter
+`https://qvest-digital.github.io/bed-con-talk-selector/` erreichbar.
+
 ## Funktionen
 
 - **Links „Mein Programm“**, rechts das Konferenzprogramm nach den beiden Tagen getrennt
