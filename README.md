@@ -20,6 +20,15 @@ npm run build
 npm run preview
 ```
 
+## GitHub Pages
+
+Bei jedem Push auf `main` baut GitHub Actions die App und veröffentlicht den Inhalt von `dist/`
+auf GitHub Pages. Die Seite ist anschließend unter
+`https://qvest-digital.github.io/bed-con-talk-selector/` erreichbar.
+Die Veröffentlichung funktioniert, weil Vite in `vite.config.js` mit `base: './'` konfiguriert
+ist und die Build-Artefakte dadurch mit relativen Pfaden auch im Repository-Unterverzeichnis von
+GitHub Pages laufen.
+
 ## Funktionen
 
 - **Links „Mein Programm“**, rechts das Konferenzprogramm nach den beiden Tagen getrennt
