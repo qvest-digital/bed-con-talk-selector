@@ -1,0 +1,207 @@
+/*
+ * Design-Tokens abgeleitet vom Stylesheet der Konferenzseite
+ * (https://bed-con.org/2026/css/style.css)
+ */
+:root {
+  --bed-orange: #ff9500;
+  --bed-orange-dark: #d67e00;
+  --bed-orange-deep: #e97f00;
+  --slate-900: #244054;
+  --slate-800: #27485b;
+  --slate-700: #425f74;
+  --slate-500: #6f95af;
+  --slate-400: #7ea3ba;
+  --text: #333333;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --surface-muted: rgba(255, 255, 255, 0.62);
+  --line: rgba(126, 163, 186, 0.16);
+  --line-strong: rgba(126, 163, 186, 0.32);
+  --shadow-sm: 0 10px 22px rgba(83, 110, 128, 0.08);
+  --shadow-md: 0 18px 38px rgba(83, 110, 128, 0.08);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #edf3f7;
+  background-image:
+    radial-gradient(circle at top left, rgba(126, 163, 186, 0.12), transparent 38%),
+    radial-gradient(circle at top right, rgba(255, 149, 0, 0.08), transparent 28%),
+    linear-gradient(180deg, #f7fafc 0%, #edf3f7 100%);
+  background-attachment: fixed;
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: var(--text);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 10px;
+  color: var(--slate-400);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+a {
+  color: var(--slate-700);
+}
+
+:focus-visible {
+  outline: 2px solid var(--bed-orange);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ---------- gemeinsame Bausteine im Stil der Konferenzseite ---------- */
+
+.site-button {
+  display: inline-block;
+  border: 1px solid rgba(126, 163, 186, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 9px 16px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--slate-700);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.site-button:hover,
+.site-button:focus-visible {
+  background-color: var(--surface-strong);
+  border-color: rgba(255, 149, 0, 0.26);
+  color: var(--slate-900);
+  box-shadow: 0 12px 26px rgba(83, 110, 128, 0.12);
+  transform: translateY(-1px);
+}
+
+.site-button--primary {
+  border-color: rgba(255, 149, 0, 0.44);
+  background: linear-gradient(135deg, #ff9500 0%, #f28a00 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(255, 149, 0, 0.2);
+}
+
+.site-button--primary:hover,
+.site-button--primary:focus-visible {
+  background: linear-gradient(135deg, #ff9f1a 0%, #e97f00 100%);
+  border-color: rgba(255, 149, 0, 0.58);
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(255, 149, 0, 0.24);
+}
+
+.site-button--small {
+  padding: 6px 12px;
+  font-size: 13px;
+  box-shadow: none;
+}
+
+.site-button--ghost {
+  background: transparent;
+  box-shadow: none;
+}
+
+.panel-card {
+  background: var(--surface);
+  border: 1px solid rgba(126, 163, 186, 0.14);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--bed-orange-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Druckansicht: nur das eigene Programm ---------- */
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  .app-header__nav,
+  .layout__main,
+  .page-footer,
+  .toast,
+  .my-program__actions,
+  .picked__remove,
+  .picked__more {
+    display: none !important;
+  }
+
+  .layout {
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  .layout__aside {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .panel-card {
+    border: 0;
+    box-shadow: none;
+    background: #ffffff;
+  }
+}
